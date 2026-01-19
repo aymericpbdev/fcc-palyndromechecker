@@ -1,0 +1,176 @@
+@font-face {
+    font-family: 'Atkinson Hyperlegible';
+    src: url('fonts/AtkinsonHyperlegibleNext-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Atkinson Hyperlegible';
+    src: url('fonts/AtkinsonHyperlegibleNext-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --color-background: #0d1117;
+    --color-surface: #161b22;
+    --color-border: #30363d;
+    --color-text-primary: #e6edf3;
+    --color-text-secondary: #8b949e;
+    --color-accent: #58a6ff;
+    --color-success: #3fb950;
+    --color-error: #f85149;
+    --font-primary: 'Atkinson Hyperlegible', system-ui, sans-serif;
+    --border-radius: 8px;
+    --shadow-elevated: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    line-height: 1.6;
+}
+
+.palindrome-checker {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-elevated);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+}
+
+.palindrome-checker__decoration {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--color-text-secondary);
+    opacity: 0.4;
+}
+
+.palindrome-checker__decoration span:last-child {
+    transform: scaleX(-1);
+}
+
+.palindrome-checker__title {
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-primary);
+}
+
+.palindrome-checker__description {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+}
+
+.palindrome-checker__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.palindrome-checker__input {
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.palindrome-checker__input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.2);
+}
+
+.palindrome-checker__input::placeholder {
+    color: var(--color-text-secondary);
+}
+
+.palindrome-checker__submit {
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.875rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--color-accent);
+    color: var(--color-background);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.palindrome-checker__submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(88, 166, 255, 0.3);
+}
+
+.palindrome-checker__submit:active {
+    transform: translateY(0);
+}
+
+.palindrome-checker__result {
+    font-size: 1.1rem;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    min-height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.palindrome-checker__result:empty {
+    background-color: transparent;
+}
+
+.palindrome-checker__result--success {
+    background-color: rgba(63, 185, 80, 0.15);
+    color: var(--color-success);
+    border: 1px solid rgba(63, 185, 80, 0.3);
+}
+
+.palindrome-checker__result--failure {
+    background-color: rgba(248, 81, 73, 0.15);
+    color: var(--color-error);
+    border: 1px solid rgba(248, 81, 73, 0.3);
+}
+
+@media (max-width: 500px) {
+    .palindrome-checker {
+        padding: 1.5rem;
+    }
+
+    .palindrome-checker__title {
+        font-size: 1.75rem;
+    }
+}

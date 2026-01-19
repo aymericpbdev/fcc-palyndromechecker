@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="palindrome-checker">
+        <div class="palindrome-checker__decoration" aria-hidden="true">
+            <span>KAYAK</span>
+            <span>KAYAK</span>
+        </div>
+
+        <h1 class="palindrome-checker__title">Palindrome Checker</h1>
+        <p class="palindrome-checker__description">Enter text to check if it reads the same forwards and backwards</p>
+
+        <div class="palindrome-checker__form">
+            <!--
+                PROTECTION: maxlength="100"
+                Limits input to 100 characters to prevent denial-of-service attacks.
+                Without this limit, a malicious user could paste millions of characters,
+                causing the browser to freeze when processing the string (split, reverse, join).
+                This is handled at HTML level so the browser blocks excessive input before JavaScript runs.
+            -->
+            <input 
+                type="text" 
+                id="text-input"
+                class="palindrome-checker__input"
+                placeholder="Enter text here..."
+                aria-label="Text to check for palindrome"
+                maxlength="100"
+            >
+            <button id="check-btn" class="palindrome-checker__submit">Check</button>
+        </div>
+
+        <div 
+            id="result" 
+            class="palindrome-checker__result"
+            role="status" 
+            aria-live="polite"
+        ></div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
