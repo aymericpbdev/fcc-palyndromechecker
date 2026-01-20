@@ -1,5 +1,6 @@
 # fcc-palyndromechecker
 Demo : https://aymericpbdev.github.io/fcc-palyndromechecker/
+Font Atkinson Hyperlegible Next : https://www.brailleinstitute.org/freefont/
 ## FreeCodeCamp criterias :
 1. You should have an input element with an id of "text-input".
 2. You should have a button element with an id of "check-btn".
