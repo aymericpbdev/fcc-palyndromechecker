@@ -3,13 +3,24 @@ const checkButton = document.getElementById('check-btn');
 const resultDisplay = document.getElementById('result');
 
 function cleanString(text) {
+    const ligatures = {
+        'œ': 'oe',
+        'æ': 'ae'
+    };
     const lowercaseText = text.toLowerCase();
+
+    const withoutLigatures = lowercaseText
+        .split('')
+        .map(char => ligatures[char] || char)
+        .join('');
+
+    const normalizedText = withoutLigatures.normalize('NFD');
     /*
         PROTECTION: Simple regex pattern
         The regex /[^a-z0-9]/g is intentionally simple to avoid ReDoS attacks.
         Complex patterns with nested quantifiers (e.g., /(a+)+$/) can cause exponential processing time with crafted inputs.
     */
-    const alphanumericOnly = lowercaseText.replace(/[^a-z0-9]/g, '');
+    const alphanumericOnly = normalizedText.replace(/[^a-z0-9]/g, '');
     return alphanumericOnly;
 }
 
