@@ -8,7 +8,6 @@ function cleanString(text) {
         PROTECTION: Simple regex pattern
         The regex /[^a-z0-9]/g is intentionally simple to avoid ReDoS attacks.
         Complex patterns with nested quantifiers (e.g., /(a+)+$/) can cause exponential processing time with crafted inputs.
-        Our pattern has O(n) complexity - safe for any input length.
     */
     const alphanumericOnly = lowercaseText.replace(/[^a-z0-9]/g, '');
     return alphanumericOnly;
@@ -54,7 +53,7 @@ function handlePalindromeCheck() {
 
     /*
         PROTECTION: Empty input validation
-        We check AFTER cleaning to catch inputs that contain only non-alphanumeric characters (spaces, punctuation, etc.).
+        We check after cleaning to catch inputs that contain only non-alphanumeric characters (spaces, punctuation, etc.).
         Example: "     " or "!@#$%" would pass a simple empty check but become empty strings after cleaning.
     */
     if (userInput === '' || cleanString(userInput) === '') {
