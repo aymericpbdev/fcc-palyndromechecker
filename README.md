@@ -1,6 +1,6 @@
 # fcc-palyndromechecker
 Demo : https://aymericpbdev.github.io/fcc-palyndromechecker/
-## FreeCodeCamp criteras :
+## FreeCodeCamp criterias :
 1. You should have an input element with an id of "text-input".
 2. You should have a button element with an id of "check-btn".
 3. You should have a div, span or p element with an id of "result".
